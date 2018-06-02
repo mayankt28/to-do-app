@@ -1,0 +1,17 @@
+
+<div class="container" style="padding-top: 10px;padding-bottom: 15px;background-color: lightgray;margin-top: 2cm;">
+  <div class="row">
+    <div class="col-sm-8">
+      <h2>Things to do</h2>
+      <ul class="list-group">
+        <li *ngFor="let task of tasks" class="list-group-item" [class.active]="task === selectedTask" [class.disabled]="task.status === 0" (click)="onSelect(task)">
+          <span class="badge">{{task.id}}</span> {{task.title}}
+        </li>
+      </ul>
+    </div>
+    <div class="col-sm-4">
+      <app-task-detail [task] = "selectedTask"></app-task-detail>
+      <app-add-task [selectedTask] = "selectedTask" ></app-add-task>
+    </div> 
+  </div>
+</div>  

@@ -1,0 +1,32 @@
+<div *ngIf="task" style="margin-bottom: 40px">
+  <div class="card">
+    <div class="card-header" style="background-color: aliceblue">
+        <h2>{{ task.title | uppercase }}</h2>
+        <div><span>ID: </span>{{task.id}}</div>
+    </div>
+    <div class="card-body">
+      
+      <div>
+        <div *ngIf="edit===true">
+            <label>Title:
+                <input [(ngModel)]="task.title" placeholder="title">
+              </label>
+        </div>
+        <h4>Description</h4>
+        <p>{{task.info}}</p>
+      </div>
+      <div *ngIf="task.status === 1">
+        <div *ngIf="edit===false">
+            <button class="btn btn-outline-primary" (click)="editMode()">Edit</button>
+            <span style="margin: 20px"><button class="btn btn-outline-primary" (click)="markDone()">Mark as done</button></span>
+        </div>
+        <div *ngIf="edit===true">
+            <button class="btn btn-outline-primary" (click)="save()">Save</button>
+        </div>
+      </div>
+      <div *ngIf="task.status === 0">
+        <p style="text-align: center;color: red">Task Completed !!</p>
+      </div>
+    </div>
+  </div>  
+</div>

@@ -1,0 +1,21 @@
+<div *ngIf="addMode === false" class="d-flex" [class.justify-content-lg-start]="!selectedTask" [class.justify-content-center]="selectedTask">
+    <button class="btn btn-lg btn-success" (click)="addTask()">Add New Task</button>
+</div>
+<div *ngIf="addMode === true">
+  <div class="card">
+    <div class="card-header" style="background-color: aliceblue">
+      <h2>New Task</h2>
+    </div>
+    <div class="card-body">
+      <h4>Tell me about it..</h4>
+      <div style="margin-bottom: 15px">
+        <label>Title: <input [(ngModel)]="title" placeholder="title"></label>
+        <label>Descr: <input [(ngModel)]="info" style ="height: 2cm" >  </label>
+      </div>
+      <button class="btn btn-outline-primary" (click)="save()">Save</button>
+      <span style="margin-left: 20px"><button class="btn btn-outline-danger" (click)="cancel()">Cancel</button></span>
+    </div>
+
+  </div>
+
+</div>
